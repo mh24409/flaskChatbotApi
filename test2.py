@@ -6,22 +6,11 @@ from main import main
 import numpy
 import random
 from time import sleep
-import main
-from main import chat
+import response
+from response import process
 app = Flask(__name__)
 api = Api(app)
 
-#--------------------------------------------------------------------
-@app.route('/', methods = ['GET', 'POST', 'DELETE'])
-def home():
-   return render_template("index.html")
-
-       
-@app.route('/get', methods = ['GET', 'POST', 'DELETE'])
-def get_bot_response():
-    userMessage = request.args.get('msg')
-    return str(chat(userMessage))
-       
 
 # ----------------------------------------------------------------
 @app.route('/users/<user_id>', methods = ['GET', 'POST', 'DELETE'])
@@ -35,7 +24,6 @@ def user(user_id):
 #----------------------------------------------------------------
 
 pets = ['cat', 'dog', 'fish']
-marks = [ 5, 4, 3, 2, 1]
 @app.route("/g", methods=['GET', 'POST'])
 def notes_list():
 

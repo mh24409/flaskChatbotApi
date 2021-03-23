@@ -11,8 +11,10 @@ import json
 import pickle
 
 from time import sleep
-import a 
-from a import process
+
+import response
+from response import process
+
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
